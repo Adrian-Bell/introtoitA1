@@ -73,7 +73,6 @@
 <body style=background-color:lightgray>
 <div class=header>
 <h1>IT Project Idea</h1>
-<h3>Weather Station</h3>
 </div>
 
 
@@ -103,80 +102,87 @@
 
 
 <div class=main>
-  <img src="weather.jpg"alt="Weather Stock Photo"style="width:400px;float:right;padding-left:50px">
+
 <h2>Overview</h2>
 <p>
-I intend to develop a weather station using a raspberry pi and create an app to view and interpret the information gathered.  Weather data will be collected using several sensors, and the raspberry pi will be configured as a web server to allow the app access to this data.  The weather station will use a solar / battery power supply and connect to the internet using Wi-Fi.
+I intend to develop a website which allows community service organisations (Providers) to create a profile page showcasing what services they can provide.  The information will be stored in a database and can be accessed by people seeking services in the local area (Users).
+</p>
+<p>
+The profile page created by the provider will have a standardized layout, and will be populated with information they enter into an HTML form when they set up their profile.
+</p>
+<p>
+Users will be able to search the database by service type and location to find and contact providers relevant to them.
 </p>
 <h2>Motivation</h2>
 <p>
-Weather is something that affects our lives in many ways and weather data may be useful for a number of different reasons such as horticulture or project planning.  Downloads of the top weather apps in Australia are in excess of one million users, and there are a number of community-based weather observation groups both online and “in real life”.
+I have worked in an aged and disability care provider for several years, and regularly see vulnerable people who are not aware of the help that is available to them.  Even within a small community there are services provided under several local, state and federal government programs by a diverse array of providers.  The process of finding help and registering for assistance can be overwhelming, and often the biggest hurdle is the first step of finding the right organization to talk to.
 </p>
 <p>
-Weather can vary widely depending on location, with localised readings being potentially quite different over a separation of only a few kilometers.  Information for specific locations is, therefore, unique and only available if there is a reliable weather station at the location.
+I hope that organizing the details of the various organisations in one place will significantly simplify the process of finding help for vulnerable people who might otherwise fall through the cracks
 </p>
+
 <h2>Desription</h2>
 <p>
-The project has two major components – the weather station itself, and the website to interpret and view the data.
+I hope that organizing the details of the various organisations in one place will significantly simplify the process of finding help for vulnerable people who might otherwise fall through the cracks
 </p>
-<ul>
-<li><h3>Weather Station</h3></li>
+<h3>Service Providers</h3>
 <p>
-The weather station will use a number of sensors to measure temperature, humidity, wind speed and direction, atmospheric pressure and rainfall.  These sensors will be connected to GPIO pins on the raspberry pi, and the raspberry pi will run programs to interpret the inputs and generate useful data.  It will be set up to act as a web server to upload this data to a database so that it can be interpreted and displayed by the website.
+  Service providers will be directed to a page with an HTML form which will be used to collect data about the organization and the services they provide.  The information requested will be largely standardized to allow a consistent and reliable profile page to be generated for each provider.
+</p>
+<p>
+  Examples of data to be collected
 </p>
 <ul>
-  <li><h4>Sensors</h4></li>
-  <p>
-    Two commercially available combination sensor units will be required
-  </p>
-    <ul>
-      <li>Pressure, Temperature and Humidity Sensor</li>
-      <p>
-      This is a passive electronic sensor, which will be connected to GPIO pins on the Raspberry Pi
-      </p>
-      <li>Anemometer, Wind Vane and Rainfall Gauge</li>
-      <p>
-        These are active mechanical sensors, and they will also be connected to GPIO pins, with the need for some extra circuitry to be used.  Initially this can be done with a breadboard for prototyping, with a printed circuit board to be used in the final product.
-      </p>
-      <p>
-        The anemometer is made to spin by the wind, and on each revolution a reed switch is triggered.  From this, it is possible to determine the average wind speed over a given time (say, a few minutes).  Wind gusts can also be measured by taking the maximum reading over a couple of seconds.
-      </p>
-      <p>
-        The wind vane consists of a rotating magnet and a circular arrangement of reed switches and resistors of varying capacities. The wind vane will rotate depending on the wind direction, and the magnet will trigger particular reed switches to open or close, which changes the resistance and therefore the output voltage.  As the raspberry pi can only read a digital input (high or low voltage) the analog data from the wind vane must be converted to digital by using an analog to digital convertor.  This component is available as a 16 pin DIL chip (MCP3008) which can be incorporated into the breadboard and PCB.
-      </p>
-      <p>
-        The rainfall gauge consists of a small bucket which fills with water to a set level.  Once this level is reached, the bucket tips, which triggers a switch and empties the bucket.  The number of times the switch is triggered determines the amount of rainfall in a predetermined time period.
-      </p>
-    </ul>
-    <li><h4>Interpretation of Data</h4></li>
-    <p>
-      Several programs will need to be written in Python to interpret the input from the sensors.  The details of each will vary depending on the parameter being measured, but the intent for each will be to take an average reading over a set time period and record the data in a database.  The weather station will be connected to Wi-Fi as a way to transfer this data to the remote database.
-    </p>
-    <li><h4>Power Source</h4></li>
-    <p>
-      For the purposes of prototyping, it may be necessary to use a mains power adapter to power the project, although in its final form it should be possible to use solar panels and a battery to supply the required power.
-    </p>
+  <li>Organisation Name / Logo / Cover Photo</li>
+  <li>Services Offered – Selected from a list for consistency, as these will be the main keywords used for search queries. It may be necessary to allow additional services to be typed in manually to allow a more comprehensive list</li>
+  <li>Postcode / Suburb of areas where the services are delivered.  Again, this list will need to be consistent to allow accurate matching of search queries.</li>
+  <li>Hours of Operation</li>
+  <li>Background information on the organization – limited to a couple of paragraphs</li>
+  <li>Contact Details</li>
   </ul>
-<li><h3>Website</h3></li>
+  <p>
+This information will be sent by HTTP POST to a PHP file for processing.  It will be stored in a Relational Database Management Service (RDBMS) such as MySQL or MariaDB.
+  </p>
+<h3>Service Seekers</h3>
 <p>
-The weather station will use python programs to record measurements to an SQL database.  This will be accessed by the website by using PHP and data will be displayed in an HTML table.  Data will be presented in an easy to interpret form, and it will be possible to access the data remotely.  Further to the table of data, it should be possible to create graphs of historical observations etc.
+Service seekers will be directed to a page which either allows them to search directly for services by organization name, service type or location, or gives the option of entering some information about themselves and the areas they might need help with.  This information can then be used to suggest services that may be of benefit.
 </p>
-</ul>
+<p>
+The search information will be entered into an HTML form, then sent to another PHP file which will search the database for relevant entries.  When matching entries are found, the data provided by the service provider will be used to populate an HTML template and generate the profile page for the organization.
+</p>
+<p>
+These organization profile pages are what will be returned to the user, who will then be able to contact the provider either using the contact details provided or using a contact form included in the site.
+</p>
+<h3>Other Considerations</h3>
+<p>
+Other considerations that need to be addressed are the ability to edit organization data once it has been entered.  This should be a relatively straightforward function to add, using a similar method to the initial data entry form process.
+</p>
+<p>
+Two important considerations for service seekers are ease of use and anonymity.  Many of those in need of help may have limited experience with computer use, reduced mental capacity or other barriers to engaging with overly complicated systems.  The search function should, therefore, be simple, intuitive and user friendly.  Anonymity is often important to vulnerable people, who might not want to register an account, for example, because of their personal situation etc.  For this reason users should not be required to enter contact details or register an account.
+</p>
+<p>
+Accuracy of data in a site with largely user generated content will be an issue that needs attention.  The use of lists to choose data such as location, service type etc will help in these areas, as will email verification for contact details. Fields requiring text input will be difficult to monitor for accuracy, and consideration will also need to be given to security.  A review feature might go some way to improve accuracy of information provided, and a fixed duration for listings would help to get rid of listings which are no longer relevant or accurate.
+</p>
+
+
+
+
 <h2>Tools and Tech</h2>
 <p>
-The project will require a considerable number of materials, and a diverse range of skills.  The hardware should be easy to source, as all sensors, components and the raspberry pi itself are commonly available products.  Raspberry Pi 3 or 4 would provide the simplest way of connecting to wi-fi and allow simple connection of all additional hardware.  General fabrication and prototyping tools and materials will also be required such as a breadboard, wire, soldering equipment etc.
+The website will rely heavily on a database such as MySQL or MariaDB, and knowledge of PHP will be required to store and retrieve the data.  XAMPP is a package that would provide access to a server (Apache), database (MariaDB) and PHP interpreter.
+</p>
+<p>
+The user interface will require knowledge of HTML/CSS and an ability to integrate all elements into one site.
+</p>
+<p>
+From my initial research, it seems feasible for a group to acquire the skills necessary to complete a working model of the website within the timeframe provided.
 </p>
 <h2>Skills Required</h2>
 <p>
-Most of the programming skills required for the project will be in Python, with a certain amount of HTML needed for the website.  Fabrication of the project will require skills and knowledge relating to electronics and circuit design.  It should be possible to develop the required skills, providing a basic level of knowledge is already present.  Overall, the project is very feasible to develop and build to a working prototype stage in the timeframe given.
+
 </p>
 <h2>Outcome</h2>
-<p>
-The project will allow the easy monitoring of current and historical weather data.  The information will be available remotely and could be tailored to provide more information on a particular aspect of the weather (for example using shorter time periods for measurements).  Including additional sensors could also allow further information to be gathered.  The information may be required for use in certain industries, or it could simply be to satisfy personal curiosity.
-</p>
-<p>
-On completion, the weather station will provide a standalone product to monitor the weather, with integration into a custom designed website.
-</p>
+
 
 
 

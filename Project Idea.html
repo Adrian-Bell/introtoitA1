@@ -92,6 +92,7 @@
     <li><a href="BigFive.html">Profile<br>-Big Five</a> </li>
     <li><a href="Ideal Job.html">Ideal Job</a> </li>
     <li><a href="Project Idea.html">Project Idea</a> </li>
+    <li><a href="Reference List.html">Reference List</a></li>
               </ul>
 </div>
 
@@ -99,10 +100,8 @@
 
 
 
-
-
 <div class=main>
-
+<img src="Project Idea.jpg"alt="Project Idea Photo"style="width:400px;float:right;padding-left:50px">
 <h2>Overview</h2>
 <p>
 I intend to develop a website which allows community service organisations (Providers) to create a profile page showcasing what services they can provide.  The information will be stored in a database and can be accessed by people seeking services in the local area (Users).
@@ -158,7 +157,7 @@ These organization profile pages are what will be returned to the user, who will
 Other considerations that need to be addressed are the ability to edit organization data once it has been entered.  This should be a relatively straightforward function to add, using a similar method to the initial data entry form process.
 </p>
 <p>
-Two important considerations for service seekers are ease of use and anonymity.  Many of those in need of help may have limited experience with computer use, reduced mental capacity or other barriers to engaging with overly complicated systems.  The search function should, therefore, be simple, intuitive and user friendly.  Anonymity is often important to vulnerable people, who might not want to register an account, for example, because of their personal situation etc.  For this reason users should not be required to enter contact details or register an account.
+Two important considerations for service seekers are ease of use and anonymity.  Many of those in need of help may have limited experience with computer use, lack of IT resourses or other barriers to engaging with overly complicated systems.  The search function should, therefore, be cross platform, intuitive and user friendly.  Anonymity is often important to vulnerable people, who might not want to register an account, for example, because of their personal situation.  For this reason users should not be required to enter contact details or register an account.
 </p>
 <p>
 Accuracy of data in a site with largely user generated content will be an issue that needs attention.  The use of lists to choose data such as location, service type etc will help in these areas, as will email verification for contact details. Fields requiring text input will be difficult to monitor for accuracy, and consideration will also need to be given to security.  A review feature might go some way to improve accuracy of information provided, and a fixed duration for listings would help to get rid of listings which are no longer relevant or accurate.
@@ -168,21 +167,32 @@ Accuracy of data in a site with largely user generated content will be an issue 
 
 
 <h2>Tools and Tech</h2>
+
+<h3>User Interface</h3>
 <p>
-The website will rely heavily on a database such as MySQL or MariaDB, and knowledge of PHP will be required to store and retrieve the data.  XAMPP is a package that would provide access to a server (Apache), database (MariaDB) and PHP interpreter.
+The user interface will be comprised of pages written largely in HTML/CSS, so no additional specific software or hardware should be required.  The user generated input will be sent by HTTP POST, processed by PHP and returned to populate a HTML template, which will comprise the organization profile.
 </p>
+<h3>Server / Database</h3>
+<p>
+Server / database requirements will be met by the use of XAMPP.  “XAMPP is a completely free, easy to install Apache distribution containing MariaDB, PHP, and Perl. The XAMPP open source package has been set up to be incredibly easy to install and to use.” (VMware 2022)
+</p>
+<p>
+This will comprise the majority of the software required to make the project work, with additional technologies and and resourses potentially being discovered over the course of development.
+</p>
+<h2>Skills Required</h2>
 <p>
 The user interface will require knowledge of HTML/CSS and an ability to integrate all elements into one site.
 </p>
 <p>
-From my initial research, it seems feasible for a group to acquire the skills necessary to complete a working model of the website within the timeframe provided.
-</p>
-<h2>Skills Required</h2>
-<p>
-
+The storage and retrieval of data will require a knowledge of PHP, SQL and RDBMS.  Various online resourses are available to gain knowledge in the required areas (Refsnes Data 2022, Wikipedia, 2021) and from my initial research, it seems feasible for a group to acquire the skills necessary to complete a working model of the website within the timeframe provided.
 </p>
 <h2>Outcome</h2>
-
+<p>
+If the project is successful, the website will provide a service which matches people’s needs with services that are on offer.  Service providers will benefit from the exposure to potential clients, while people in need of services will benefit by being put in touch with organisations that can help them.
+</p>
+<p>
+The website will provide a centralized location to advertise a diverse range of organisations and services that can be hard to track down.  Often it is the first step of finding the service that is needed that can be the stumbling block which stops people from finding help.  A simple and accessible website that makes it easier to find this information will be of great benefit to people in need.
+</p>
 
 
 
